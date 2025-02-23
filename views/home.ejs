@@ -11,6 +11,9 @@
       h1 {
         margin-top: 50px;
       }
+      table{
+        margin: auto;
+      }
     </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,12 +41,12 @@
           <th>Visits</th>
         </thead>
         <tbody>
-          <%url.forEach((index, url) => {%>
+          <%url.forEach((url, index) => {%>
           <tr>
             <td><%= index+1 %></td>
-            <td><%= url.ShortID %></td>
-            <td><%= url.redirectURL %></td>
-            <td><%= url.visitHistory %></td>
+            <td><%= url.shortId %></td>
+            <td><%= url.redirectUrl %></td>
+            <td><%= url.visitHistory.length%></td>
           </tr>
           <% })%>
         </tbody>
