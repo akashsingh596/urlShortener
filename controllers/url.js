@@ -13,6 +13,7 @@ async function handleGenerateShortUrl(req, res) {
   return res.json({ id: shortId });
 }
 
+
 async function handleGetAnalytics(req, res) {
   const shortId = req.params.shortId;
   const result = await URL.findOne({ shortId });
