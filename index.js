@@ -26,22 +26,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/url", urlRoute);
 app.use("/user", userRoute);
 app.use("/", staticRoute);
-
-app.get("/url/:shortId", async (req, res) => {
-  const shortId = req.params.shortId;
-  await URL.findOneAndUpdate(
-    {
-      shortId,
-    },
-    {
-      $push: {
-        visitHistory: { date: new Date() },
-      },
-    }
-  );
-  res.redirect((await URL.findOne({ shortId })).redirectUrl);
-});
-
+app.use("/analytics/:shortId" , urlRoute)
+app.use("/url/:shortId" , urlRoute)
 
 
 app.listen(port, () => {
